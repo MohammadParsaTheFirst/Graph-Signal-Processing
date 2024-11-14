@@ -10,8 +10,6 @@ This project explores community detection in graphs using the **Stochastic Block
 
 1. **Stochastic Block Model (SBM) Setup**:  
    - Constructed an SBM graph with two communities where each node pair within the same community has a probability **p** of being connected, and nodes between communities have a connection probability **q**.
-   
-   ![SBM Graph Structure](path/to/your/image1.png)
 
 2. **Spectral Clustering via Laplacian Eigenvectors**:  
    - Computed the unnormalized and normalized Laplacian matrices of the graph.
