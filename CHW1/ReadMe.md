@@ -22,8 +22,10 @@ This project explores community detection in graphs using the **Stochastic Block
 3. **Accuracy vs. Criterion Analysis**:  
    - Assessed the accuracy of community detection as a function of **|√α - √β|**, reflecting the impact of within-community and between-community connection probabilities on classification success.
    
-   ![Accuracy vs Criterion Plot](path/to/your/image3.png)
-
+    <div align="center">
+    <img src="https://github.com/MohammadParsaTheFirst/Graph-Signal-Processing/blob/main/CHW1/Results/gr9.png?raw=true" alt="Accuracy vs. Criterion Analysis" width="500"/>
+     </div>
+     
 ## Results Directory
 
 All relevant matrices (adjacency, Laplacian, etc.) are stored in the `results` directory for further analysis and reproducibility.
