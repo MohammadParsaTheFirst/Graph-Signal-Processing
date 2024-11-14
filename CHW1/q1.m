@@ -77,6 +77,13 @@ x_hat = gsp_gft(H, x);
 figure('Position', [100, 100, 800, 400]);
 % gsp_plot_signal_spectral(H,x_hat);
 plot(real(spectrum), imag(spectrum), '*', 'MarkerSize', 5)
+grid on;
+%%
+stem(x_hat)
+title('The Spectrum of Random signal $x_H$ on graph',Interpreter='latex')
+xlabel('EigenValues')
+ylabel('The spectrum of $x_H$',Interpreter='latex')
+grid on;
 %% Part 5
 v1 = H.U(:, 1);
 v2 = H.U(:, 2);
@@ -107,3 +114,23 @@ title(['One to the last Eigenvector, ' '$\lambda$ = ' num2str(round(H.e(end-1), 
 
 % Add an overall title for the subplots
 sgtitle('Graph Signal Analysis', 'FontSize', 16);
+
+
+
+%%
+function display_and_save_matrices(G, filename)
+    % Check if the adjacency matrix exists
+    if isfield(G, 'W')
+        adj_matrix = G.W;
+        
+        % Display the adjacency matrix
+        disp('Adjacency Matrix:');
+        disp(adj_matrix);
+        
+        % Save the adjacency matrix to a text file
+        save(filename, 'adj_matrix', '-ascii');
+        fprintf('Adjacency matrix saved to %s\n', filename);
+    else
+        error('The graph structure does not contain an adjacency matrix.');
+    end
+end
