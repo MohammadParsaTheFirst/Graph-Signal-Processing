@@ -1,5 +1,5 @@
 %% Part 1
-% Parameters
+% Parameters of SBM
 N = 1000;
 p = 0.5;
 q = 0.2;
@@ -21,7 +21,7 @@ G = gsp_create_laplacian(G, 'normalized');
 G.type = 'normalized';
 G = gsp_compute_fourier_basis(G);
 
-% Choose subset of Fourier basis for visualization
+% Getting Fourier basis for visualization
 U23 = G.U;
 G.coords = U23(:, 2:max(3, dim));
 
@@ -31,9 +31,27 @@ param.colorbar = 0;
 G.plotting.edge_width = 0.1;
 figure;
 gsp_plot_signal(G, sig, param);
-title('SBM Graph Clustering');
+title('SBM Graph Clustering - with Normalized Laplacian');
+%%
+G = gsp_graph(A);
+% Use 'combinatorial' for unnormalized Laplacian
+G = gsp_create_laplacian(G, 'combinatorial'); 
+G.type = 'combinatorial';
+G = gsp_compute_fourier_basis(G);
+
+% Getting Fourier basis for visualization
+U23 = G.U;
+G.coords = U23(:, 2:max(3, dim));
+% Plotting parameters
+param = struct;
+param.colorbar = 0;
+G.plotting.edge_width = 0.1;
+figure;
+gsp_plot_signal(G, sig, param)
+title('SBM Graph Clustering - with Unnormalized Laplacian');
+
 %% Part 2
-% Parameters
+% Parameters of SBM
 N = 1000;
 seed = 99;
 dim = 2;
@@ -77,6 +95,7 @@ xlabel('Criteria (\(\frac{(\sqrt{\alpha} - \sqrt{\beta})^2}{2}\))', 'Interpreter
 ylabel('Accuracy');
 title(['Accuracy vs. Criteria, N = ' num2str(N)]);
 grid on;
+
 
 % Display threshold information
 disp(['Criterion threshold for N = ' num2str(N) ': ' num2str(criteria(idx_threshold))]);
