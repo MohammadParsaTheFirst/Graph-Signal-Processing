@@ -17,8 +17,10 @@ This project explores community detection in graphs using the **Stochastic Block
    - Computed the unnormalized and normalized Laplacian matrices of the graph.
    - Used the second and third smallest eigenvectors of the Laplacian for spectral clustering, effectively visualizing community separation.
 
-   ![Spectral Clustering on SBM Graph](path/to/your/image2.png)
-
+   <div align="center">
+    <img src="https://github.com/MohammadParsaTheFirst/Graph-Signal-Processing/blob/main/CHW1/Results/gr8.png?raw=true" alt="Spectral Clustering on SBM Graph" width="500"/>
+     </div>
+   
 3. **Accuracy vs. Criterion Analysis**:  
    - Assessed the accuracy of community detection as a function of **|√α - √β|**, reflecting the impact of within-community and between-community connection probabilities on classification success.
    
